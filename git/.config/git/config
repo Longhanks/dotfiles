@@ -1,0 +1,17 @@
+[core]
+    editor = nvim
+[user]
+    name = Andreas Schulz
+    email = andi.schulz@me.com
+[push]
+    default = simple
+[status]
+    showUntrackedFiles = all
+[pull]
+    rebase = true
+[merge]
+    renormalize = true
+[credential]
+    helper = store
+[pager]
+	branch = false

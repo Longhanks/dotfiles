@@ -1,0 +1,4 @@
+mpd_host=10gentoominuten@172.25.2.7
+mpd_port=6600
+mouse_support="yes"
+execute_on_song_change = "/home/aschulz/Dropbox/UNIX/scripts/mpd-current-song"

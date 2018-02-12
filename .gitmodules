@@ -1,0 +1,48 @@
+[submodule "vim/.vim/pack/aschulz/start/auto-pairs"]
+	path = vim/.vim/pack/aschulz/start/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs
+[submodule "vim/.vim/pack/aschulz/start/ctrlp.vim"]
+	path = vim/.vim/pack/aschulz/start/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim
+[submodule "vim/.vim/pack/aschulz/start/far.vim"]
+	path = vim/.vim/pack/aschulz/start/far.vim
+	url = https://github.com/brooth/far.vim
+[submodule "vim/.vim/pack/aschulz/start/indentLine"]
+	path = vim/.vim/pack/aschulz/start/indentLine
+	url = https://github.com/Yggdroot/indentLine
+[submodule "vim/.vim/pack/aschulz/start/onedark.vim"]
+	path = vim/.vim/pack/aschulz/start/onedark.vim
+	url = https://github.com/joshdick/onedark.vim
+[submodule "vim/.vim/pack/aschulz/start/SimpylFold"]
+	path = vim/.vim/pack/aschulz/start/SimpylFold
+	url = https://github.com/tmhedberg/SimpylFold
+[submodule "vim/.vim/pack/aschulz/start/tcomment_vim"]
+	path = vim/.vim/pack/aschulz/start/tcomment_vim
+	url = https://github.com/tomtom/tcomment_vim
+[submodule "vim/.vim/pack/aschulz/start/vim-argwrap"]
+	path = vim/.vim/pack/aschulz/start/vim-argwrap
+	url = https://github.com/FooSoft/vim-argwrap
+[submodule "vim/.vim/pack/aschulz/start/vim-polyglot"]
+	path = vim/.vim/pack/aschulz/start/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot
+[submodule "vim/.vim/pack/aschulz/start/vim-surround"]
+	path = vim/.vim/pack/aschulz/start/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule "vim/.vim/pack/aschulz/start/YouCompleteMe"]
+	path = vim/.vim/pack/aschulz/opt/YouCompleteMe
+	url = https://github.com/oblitum/YouCompleteMe
+[submodule "zsh/.config/zsh/.oh-my-zsh"]
+	path = zsh/.config/zsh/.oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh
+[submodule "zsh/.config/zsh/custom/plugins/zsh-autosuggestions"]
+	path = zsh/.config/zsh/custom/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule "tmux/.config/tmux/tmux-onedark-theme"]
+	path = tmux/.config/tmux/tmux-onedark-theme
+	url = https://github.com/Longhanks/tmux-onedark-theme
+[submodule "vim/.vim/pack/aschulz/start/lightline.vim"]
+	path = vim/.vim/pack/aschulz/start/lightline.vim
+	url = https://github.com/itchyny/lightline.vim/
+[submodule "vim/.vim/pack/aschulz/start/lightline-bufferline"]
+	path = vim/.vim/pack/aschulz/start/lightline-bufferline
+	url = https://github.com/mgee/lightline-bufferline
