@@ -1,5 +1,6 @@
 [core]
     editor = nvim
+    pager = most
 [user]
     name = Andreas Schulz
     email = andi.schulz@me.com
