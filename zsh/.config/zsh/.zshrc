@@ -67,14 +67,16 @@ case `uname -s` in
         ;;
     Linux)
         pkgplugin=debian
-        konsolex=$(qdbus | grep konsole | cut -f 2 -d\ )
-        if [ -n "$konsolex" ]; then
-            for konsole in `xdotool search --class konsole`; do
-                xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id $konsole;
-            done
-        fi
-        if [ `qdbus | grep yakuake` ]; then
-            xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id `xdotool search --class yakuake`;
+        if ! [ -z "$DISPLAY" ]; then
+            konsolex=$(qdbus | grep konsole | cut -f 2 -d\ )
+            if [ -n "$konsolex" ]; then
+                for konsole in `xdotool search --class konsole`; do
+                    xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id $konsole;
+                done
+            fi
+            if [ `qdbus | grep yakuake` ]; then
+                xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id `xdotool search --class yakuake`;
+            fi
         fi
         ;;
 esac
