@@ -1,11 +1,6 @@
-export LC_ALL=de_DE.UTF-8
-export LANG=de_DE.UTF-8
 export ZSH=$HOME/.config/zsh/.oh-my-zsh
-export TERM=xterm-256color
-export EDITOR=nvim
 export HOMEBREW_NO_AUTO_UPDATE=1
 export PAGER=most
-export MANPATH=$HOME/.local/share/man:$MANPATH
 if [[ ! -d $HOME/.cache/zsh ]]; then
     mkdir -p $HOME/.cache/zsh
 fi
@@ -15,7 +10,6 @@ fi
 export HISTFILE=$HOME/.cache/zsh/.zsh_history
 ZSH_THEME="sorin"
 
-alias vim=nvim
 alias workspace-attach='ssh -o SendEnv=COLORTERM -p 12132 aschulz@www.as-schulz.de -t "/usr/local/bin/tmux -u a -t aschulzmux || /usr/local/bin/tmux -u new -s aschulzmux"'
 alias sqlplus='docker run -it --rm --net=host guywithnose/sqlplus sqlplus'
 
@@ -60,23 +54,38 @@ HIST_STAMPS="dd.mm.yyyy"
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM=$HOME/.config/zsh/custom/
 
+
 # Find out package manager.
 case `uname -s` in
     Darwin)
         pkgplugin=brew
+        if [ ! -z "$(command -v nvim)" ]; then
+            alias vim=nvim
+            export EDITOR=nvim
+        else
+            export EDITOR=vim
+        fi
         ;;
     Linux)
         pkgplugin=debian
-        if ! [ -z "$DISPLAY" ]; then
-            konsolex=$(qdbus | grep konsole | cut -f 2 -d\ )
-            if [ -n "$konsolex" ]; then
-                for konsole in `xdotool search --class konsole`; do
+        if [ ! -z "$(command -v nvim)" ]; then
+            alias vim='$HOME/.config/zsh/blur_wrap nvim'
+            export EDITOR='$HOME/.config/zsh/blur_wrap nvim'
+        else
+            alias vim='$HOME/.config/zsh/blur_wrap vim'
+            export EDITOR='$HOME/.config/zsh/blur_wrap vim'
+        fi
+        if [ ! -z "${DISPLAY+x}" ]; then
+            for konsole in $(xdotool search --class konsole); do
+                if [[ "$konsole" == "$(xdotool getactivewindow)" ]]; then
                     xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id $konsole;
-                done
-            fi
-            if [ `qdbus | grep yakuake` ]; then
-                xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id `xdotool search --class yakuake`;
-            fi
+                fi
+            done
+            for yakuake in $(xdotool search --class yakuake); do
+                if [[ "$yakuake" == "$(xdotool getactivewindow)" ]]; then
+                    xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id $yakuake;
+                fi
+            done
         fi
         ;;
 esac

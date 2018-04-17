@@ -1,0 +1,14 @@
+#!/bin/sh
+
+if [[ ! -z "$(xprop -id $(xdotool getactivewindow) | grep _KDE_NET_WM_BLUR_BEHIND_REGION)" ]]; then
+    xprop -remove _KDE_NET_WM_BLUR_BEHIND_REGION -id $(xdotool getactivewindow)
+    konsoleprofile ColorScheme=OneDark
+    $@
+    xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id $(xdotool getactivewindow)
+    konsoleprofile ColorScheme=OneDarkTransparent
+else
+    konsoleprofile ColorScheme=OneDark
+    $@
+    konsoleprofile ColorScheme=OneDarkTransparent
+fi
+

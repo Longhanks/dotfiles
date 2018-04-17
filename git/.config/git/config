@@ -1,5 +1,4 @@
 [core]
-    editor = nvim
     pager = most
 [user]
     name = Andreas Schulz
