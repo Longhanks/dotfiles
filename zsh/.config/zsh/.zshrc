@@ -1,19 +1,47 @@
+# Set XDG dirs.
+if [ -z "${XDG_CONFIG_HOME+x}" ]; then
+    export XDG_CONFIG_HOME="$HOME"/.config
+fi 
+if [ -z "${XDG_CACHE_HOME+x}" ]; then
+    export XDG_CACHE_HOME="$HOME"/.cache
+fi
+if [ -z "${XDG_DATA_HOME+x}" ]; then
+    export XDG_DATA_HOME="$HOME"/.local/share
+fi
+
+# Create necessary dirs.
+if [[ ! -d $XDG_CACHE_HOME/zsh ]]; then
+    mkdir -p $XDG_CACHE_HOME/zsh
+fi
+if [[ ! -d $XDG_CACHE_HOME/vim ]]; then
+    mkdir -p $XDG_CACHE_HOME/vim
+fi
+if [[ ! -d $XDG_CONFIG_HOME/less ]]; then
+    mkdir -p $XDG_CACHE_HOME/less
+fi
+if [[ ! -d $XDG_CONFIG_HOME/npm ]]; then
+    mkdir -p $XDG_CONFIG_HOME/npm
+fi
+if [[ ! -d $XDG_CACHE_HOME/npm ]]; then
+    mkdir -p $XDG_CACHE_HOME/npm
+fi
+if [[ ! -d $XDG_CONFIG_HOME/gem ]]; then
+    mkdir -p $XDG_CONFIG_HOME/gem
+fi
+if [[ ! -d $XDG_CACHE_HOME/gem ]]; then
+    mkdir -p $XDG_CACHE_HOME/gem
+fi
+if [[ ! -d $XDG_DATA_HOME/gem ]]; then
+    mkdir -p $XDG_DATA_HOME/gem
+fi
+
+# Home of oh-my-zsh.
 export ZSH=$HOME/.config/zsh/.oh-my-zsh
-export HOMEBREW_NO_AUTO_UPDATE=1
-export PAGER=most
-if [[ ! -d $HOME/.cache/zsh ]]; then
-    mkdir -p $HOME/.cache/zsh
-fi
-if [[ ! -d $HOME/.cache/vim ]]; then
-    mkdir -p $HOME/.cache/vim
-fi
-export HISTFILE=$HOME/.cache/zsh/.zsh_history
+
+# oh-my-zsh theme.
 ZSH_THEME="sorin"
 
-alias workspace-attach='ssh -p 12132 aschulz@www.as-schulz.de'
-alias sqlplus='docker run -it --rm --net=host guywithnose/sqlplus sqlplus'
-
-# To customize prompt
+# To customize prompt.
 DEFAULT_USER="aschulz"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -54,11 +82,56 @@ HIST_STAMPS="dd.mm.yyyy"
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM=$HOME/.config/zsh/custom/
 
-
 # OS-specific settings.
 case `uname -s` in
     Darwin)
         pkgplugin=brew
+        ;;
+    Linux)
+        pkgplugin=debian
+        ;;
+esac
+
+plugins=(git pip zsh-autosuggestions pkgplugin)
+
+# oh-my-zsh is ready, source it.
+source $ZSH/oh-my-zsh.sh
+
+
+# Customization after oh-my-zsh initialized.
+
+# Aliases & environment variables.
+alias workspace-attach='ssh -p 12132 aschulz@www.as-schulz.de'
+alias sqlplus='docker run -it --rm --net=host guywithnose/sqlplus sqlplus'
+
+export HOMEBREW_NO_AUTO_UPDATE=1
+export PAGER=most
+export HISTFILE=$HOME/.cache/zsh/.zsh_history
+export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME"/httpie
+export IPYTHONDIR="$XDG_CONFIG_HOME"/jupyter
+export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
+export _JAVA_OPTIONS="-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java $_JAVA_OPTIONS"
+export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
+export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/config
+export NPM_CONFIG_CACHE=$XDG_CACHE_HOME/npm
+export NPM_CONFIG_TMP=$XDG_RUNTIME_DIR/npm
+export PYLINTHOME="$XDG_CACHE_HOME"/pylint
+export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
+export RLWRAP_HOME="$XDG_DATA_HOME"/rlwrap
+export GEM_HOME="$XDG_DATA_HOME"/gem
+export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem
+export GEMRC="$XDG_CONFIG_HOME"/gem/gemrc
+export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+
+
+if [[ $(uname -s) == 'Linux' ]]; then
+    export LS_COLORS="di=1;36:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
+fi
+
+# OS-specific settings.
+case `uname -s` in
+    Darwin)
         if [ ! -z "$(command -v nvim)" ]; then
             alias vim=nvim
             export EDITOR=nvim
@@ -67,7 +140,6 @@ case `uname -s` in
         fi
         ;;
     Linux)
-        pkgplugin=debian
         if [ ! -z "$(command -v nvim)" ]; then
             if [ ! -z "${DISPLAY+x}" ]; then
                 alias vim='$HOME/.config/zsh/blur_wrap nvim'
@@ -99,19 +171,4 @@ case `uname -s` in
         fi
         ;;
 esac
-
-plugins=(git pip zsh-autosuggestions pkgplugin)
-
-source $ZSH/oh-my-zsh.sh
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Some ls color settings
-if [[ $(uname -s) == 'Linux' ]]; then
-    export LS_COLORS="di=1;36:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
-fi
 
