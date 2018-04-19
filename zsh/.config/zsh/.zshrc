@@ -122,7 +122,6 @@ export RLWRAP_HOME="$XDG_DATA_HOME"/rlwrap
 export GEM_HOME="$XDG_DATA_HOME"/gem
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem
 export GEMRC="$XDG_CONFIG_HOME"/gem/gemrc
-export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 
 
 if [[ $(uname -s) == 'Linux' ]]; then
