@@ -10,7 +10,7 @@ fi
 export HISTFILE=$HOME/.cache/zsh/.zsh_history
 ZSH_THEME="sorin"
 
-alias workspace-attach='ssh -o SendEnv=COLORTERM -p 12132 aschulz@www.as-schulz.de -t "/usr/local/bin/tmux -u a -t aschulzmux || /usr/local/bin/tmux -u new -s aschulzmux"'
+alias workspace-attach='ssh -p 12132 aschulz@www.as-schulz.de'
 alias sqlplus='docker run -it --rm --net=host guywithnose/sqlplus sqlplus'
 
 # To customize prompt
@@ -55,7 +55,7 @@ HIST_STAMPS="dd.mm.yyyy"
 ZSH_CUSTOM=$HOME/.config/zsh/custom/
 
 
-# Find out package manager.
+# OS-specific settings.
 case `uname -s` in
     Darwin)
         pkgplugin=brew
@@ -69,13 +69,23 @@ case `uname -s` in
     Linux)
         pkgplugin=debian
         if [ ! -z "$(command -v nvim)" ]; then
-            alias vim='$HOME/.config/zsh/blur_wrap nvim'
-            export EDITOR='$HOME/.config/zsh/blur_wrap nvim'
+            if [ ! -z "${DISPLAY+x}" ]; then
+                alias vim='$HOME/.config/zsh/blur_wrap nvim'
+                export EDITOR='$HOME/.config/zsh/blur_wrap nvim'
+            else
+                alias vim=nvim
+                export EDITOR=nvim
+            fi
         else
-            alias vim='$HOME/.config/zsh/blur_wrap vim'
-            export EDITOR='$HOME/.config/zsh/blur_wrap vim'
+            if [ ! -z "${DISPLAY+x}" ]; then
+                alias vim='$HOME/.config/zsh/blur_wrap vim'
+                export EDITOR='$HOME/.config/zsh/blur_wrap vim'
+            else
+                export EDITOR=vim
+            fi
         fi
         if [ ! -z "${DISPLAY+x}" ]; then
+            alias ssh='$HOME/.config/zsh/blur_wrap ssh'
             for konsole in $(xdotool search --class konsole); do
                 if [[ "$konsole" == "$(xdotool getactivewindow)" ]]; then
                     xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id $konsole;
