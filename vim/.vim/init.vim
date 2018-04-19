@@ -168,7 +168,7 @@ inoremap <expr> <Enter> pumvisible() ? "<Esc>a" : "<Enter>"
 let g:ycm_confirm_extra_conf = 0
 
 " Provide default global completion file
-let g:ycm_global_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 
 " Provide python paths on OS X
 if has('unix')
