@@ -16,6 +16,12 @@ fi
 if [[ ! -d $XDG_CACHE_HOME/vim ]]; then
     mkdir -p $XDG_CACHE_HOME/vim
 fi
+if [[ ! -d $XDG_CACHE_HOME/vim/backup ]]; then
+    mkdir -p $XDG_CACHE_HOME/vim/backup
+fi
+if [[ ! -d $XDG_CONFIG_HOME/vim ]]; then
+    mkdir -p $XDG_CONFIG_HOME/vim
+fi
 if [[ ! -d $XDG_CONFIG_HOME/less ]]; then
     mkdir -p $XDG_CACHE_HOME/less
 fi
