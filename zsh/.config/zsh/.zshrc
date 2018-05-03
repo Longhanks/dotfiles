@@ -184,3 +184,7 @@ else
 	export PROMPT='$HOST '$PROMPT
 fi
 
+if [[ "$TERM" == "linux" ]]; then
+    export PROMPT=$(echo $PROMPT | sed -E 's/❯/>/g')
+fi
+
