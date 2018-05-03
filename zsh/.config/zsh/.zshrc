@@ -177,3 +177,10 @@ case `uname -s` in
         ;;
 esac
 
+# Adapt prompt of sorin to add hostname.
+if [[ "$TERM" != "dumb"  ]] && [[ "$DISABLE_LS_COLORS" != "true"  ]]; then
+	export PROMPT='%{$fg[blue]%}$HOST '$PROMPT
+else
+	export PROMPT='$HOST '$PROMPT
+fi
+
