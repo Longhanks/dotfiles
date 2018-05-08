@@ -146,33 +146,10 @@ case `uname -s` in
         ;;
     Linux)
         if [ ! -z "$(command -v nvim)" ]; then
-            if [ ! -z "${DISPLAY+x}" ]; then
-                alias vim='$HOME/.config/zsh/blur_wrap nvim'
-                export EDITOR='$HOME/.config/zsh/blur_wrap nvim'
-            else
-                alias vim=nvim
-                export EDITOR=nvim
-            fi
+            alias vim=nvim
+            export EDITOR=nvim
         else
-            if [ ! -z "${DISPLAY+x}" ]; then
-                alias vim='$HOME/.config/zsh/blur_wrap vim'
-                export EDITOR='$HOME/.config/zsh/blur_wrap vim'
-            else
-                export EDITOR=vim
-            fi
-        fi
-        if [ ! -z "${DISPLAY+x}" ]; then
-            alias ssh='$HOME/.config/zsh/blur_wrap ssh'
-            for konsole in $(xdotool search --class konsole); do
-                if [[ "$konsole" == "$(xdotool getactivewindow)" ]]; then
-                    xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id $konsole;
-                fi
-            done
-            for yakuake in $(xdotool search --class yakuake); do
-                if [[ "$yakuake" == "$(xdotool getactivewindow)" ]]; then
-                    xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id $yakuake;
-                fi
-            done
+            export EDITOR=vim
         fi
         ;;
 esac

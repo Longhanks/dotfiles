@@ -1,5 +1,5 @@
 [Appearance]
-ColorScheme=OneDarkTransparent
+ColorScheme=OneDark
 Font=SF Mono,10,-1,0,50,0,0,0,0,0
 
 [Cursor Options]
