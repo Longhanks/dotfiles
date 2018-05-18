@@ -6,6 +6,18 @@ else
     set guicursor=
 endif
 
+if !exists('$XDG_CONFIG_HOME')
+	let $XDG_CONFIG_HOME = $HOME.'/.config'
+end
+
+if !exists('$XDG_DATA_HOME')
+	let $XDG_DATA_HOME = $HOME.'/.local/share'
+end
+
+if !exists('$XDG_CACHE_HOME')
+	let $XDG_CACHE_HOME = $HOME.'/.cache'
+end
+
 " Use XDG directories
 set undodir=$XDG_CACHE_HOME/vim/undo
 set directory=$XDG_CACHE_HOME/vim/swap
