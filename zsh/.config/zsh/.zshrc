@@ -43,6 +43,11 @@ fi
 if [[ ! -d $XDG_DATA_HOME/gem ]]; then
     mkdir -p $XDG_DATA_HOME/gem
 fi
+if command -v pacman > /dev/null 2>&1; then
+    if [[ ! -d $XDG_CONFIG_HOME/pacman ]]; then
+        mkdir -p $XDG_CONFIG_HOME/pacman
+    fi
+fi
 
 # Home of oh-my-zsh.
 export ZSH=$HOME/.config/zsh/.oh-my-zsh
