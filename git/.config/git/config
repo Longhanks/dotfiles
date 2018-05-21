@@ -3,6 +3,7 @@
 [user]
     name = Andreas Schulz
     email = andi.schulz@me.com
+    signingkey = F15B9AC734F0094A
 [push]
     default = simple
 [status]
@@ -15,3 +16,7 @@
     helper = store
 [pager]
 	branch = false
+[commit]
+    gpgsign = true
+[gpg]
+    program = gpg
