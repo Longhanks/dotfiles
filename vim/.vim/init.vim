@@ -6,24 +6,14 @@ else
     set guicursor=
 endif
 
-if !exists('$XDG_CONFIG_HOME')
-	let $XDG_CONFIG_HOME = $HOME.'/.config'
+if exists('$XDG_CONFIG_HOME') && exists('$XDG_DATA_HOME') && exists('$XDG_CACHE_HOME')
+    " Use XDG directories
+    set undodir=$XDG_CACHE_HOME/vim/undo
+    set directory=$XDG_CACHE_HOME/vim/swap
+    set backupdir=$XDG_CACHE_HOME/vim/backup
+    set viminfo+='1000,n$XDG_CACHE_HOME/vim/viminfo
+    set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
 end
-
-if !exists('$XDG_DATA_HOME')
-	let $XDG_DATA_HOME = $HOME.'/.local/share'
-end
-
-if !exists('$XDG_CACHE_HOME')
-	let $XDG_CACHE_HOME = $HOME.'/.cache'
-end
-
-" Use XDG directories
-set undodir=$XDG_CACHE_HOME/vim/undo
-set directory=$XDG_CACHE_HOME/vim/swap
-set backupdir=$XDG_CACHE_HOME/vim/backup
-set viminfo+='1000,n$XDG_CACHE_HOME/vim/viminfo
-set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
 
 " Load plugins and indent settings for detected file types
 filetype plugin indent on
