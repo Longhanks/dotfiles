@@ -136,6 +136,9 @@ export RLWRAP_HOME="$XDG_DATA_HOME"/rlwrap
 export GEM_HOME="$XDG_DATA_HOME"/gem
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem
 export GEMRC="$XDG_CONFIG_HOME"/gem/gemrc
+export PINENTRY_USER_DATA="USE_CURSES=1"
+export GPG_TTY=$(tty)
+export GNUPGHOME="$XDG_CONFIG_HOME"/gnupg
 
 
 if [[ $(uname -s) == 'Linux' ]]; then
