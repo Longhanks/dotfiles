@@ -49,6 +49,9 @@ if command -v pacman > /dev/null 2>&1; then
         mkdir -p $XDG_CONFIG_HOME/pacman
     fi
 fi
+if [[ -d $HOME/.cargo/bin ]]; then
+    export PATH=$HOME/.cargo/bin:$PATH
+fi
 
 # Home of oh-my-zsh.
 export ZSH=$HOME/.config/zsh/.oh-my-zsh
@@ -117,7 +120,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Aliases & environment variables.
 alias workspace-attach='ssh -p 12132 aschulz@www.as-schulz.de'
-alias sqlplus='docker run -it --rm --net=host guywithnose/sqlplus sqlplus'
+alias sqlplus='docker run -it --rm --net=host docker.prosis.group/oracle-12c-1 /u01/app/oracle-product/12.1.0/xe/bin/sqlplus'
+alias expdp='docker run -it --rm --net=host docker.prosis.group/oracle-12c-1 /u01/app/oracle-product/12.1.0/xe/bin/expdp'
+alias impdp='docker run -it --rm --net=host docker.prosis.group/oracle-12c-1 /u01/app/oracle-product/12.1.0/xe/bin/impdp'
 
 export HOMEBREW_NO_AUTO_UPDATE=1
 export PAGER=most
