@@ -119,6 +119,8 @@ source $ZSH/oh-my-zsh.sh
 # Customization after oh-my-zsh initialized.
 
 # Aliases & environment variables.
+alias bat='bat --theme="TwoDark"'
+alias cat='bat --theme="TwoDark"'
 alias workspace-attach='ssh -p 12132 aschulz@www.as-schulz.de'
 alias sqlplus='docker run -it --rm --net=host docker.prosis.group/oracle-12c-1 /u01/app/oracle-product/12.1.0/xe/bin/sqlplus'
 alias expdp='docker run -it --rm --net=host docker.prosis.group/oracle-12c-1 /u01/app/oracle-product/12.1.0/xe/bin/expdp'
