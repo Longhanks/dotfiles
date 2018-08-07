@@ -57,7 +57,7 @@ fi
 export ZSH=$HOME/.config/zsh/.oh-my-zsh
 
 # oh-my-zsh theme.
-ZSH_THEME="sorin"
+ZSH_THEME="sorin-aschulz"
 
 # To customize prompt.
 DEFAULT_USER="aschulz"
@@ -101,16 +101,15 @@ HIST_STAMPS="dd.mm.yyyy"
 ZSH_CUSTOM=$HOME/.config/zsh/custom/
 
 # OS-specific settings.
-case `uname -s` in
-    Darwin)
-        pkgplugin=brew
-        ;;
-    Linux)
-        pkgplugin=debian
-        ;;
-esac
+if [ $(uname -s) = "Darwin" ]; then
+    pkgplugin=brew
+else
+    if [ -f /etc/os-release ]; then
+        cat /etc/os-release | grep ID_LIKE | read id; pkgplugin=${id:8}
+    fi
+fi
 
-plugins=(git pip zsh-autosuggestions pkgplugin)
+plugins=(git cargo pip zsh-autosuggestions pkgplugin)
 
 # oh-my-zsh is ready, source it.
 source $ZSH/oh-my-zsh.sh
@@ -121,7 +120,6 @@ source $ZSH/oh-my-zsh.sh
 # Aliases & environment variables.
 alias bat='bat --theme="TwoDark"'
 alias cat='bat --theme="TwoDark"'
-alias workspace-attach='ssh -p 12132 aschulz@www.as-schulz.de'
 alias sqlplus='docker run -it --rm --net=host docker.prosis.group/oracle-12c-1 /u01/app/oracle-product/12.1.0/xe/bin/sqlplus'
 alias expdp='docker run -it --rm --net=host docker.prosis.group/oracle-12c-1 /u01/app/oracle-product/12.1.0/xe/bin/expdp'
 alias impdp='docker run -it --rm --net=host docker.prosis.group/oracle-12c-1 /u01/app/oracle-product/12.1.0/xe/bin/impdp'
@@ -170,15 +168,4 @@ case `uname -s` in
         export SYSTEMD_PAGER=""
         ;;
 esac
-
-# Adapt prompt of sorin to add hostname.
-if [[ "$TERM" != "dumb"  ]] && [[ "$DISABLE_LS_COLORS" != "true"  ]]; then
-	export PROMPT='%{$fg[blue]%}$HOST '$PROMPT
-else
-	export PROMPT='$HOST '$PROMPT
-fi
-
-if [[ "$TERM" == "linux" ]]; then
-    export PROMPT=$(echo $PROMPT | sed -E 's/❯/>/g')
-fi
 
