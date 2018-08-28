@@ -125,7 +125,6 @@ alias expdp='docker run -it --rm --net=host docker.prosis.group/oracle-12c-1 /u0
 alias impdp='docker run -it --rm --net=host docker.prosis.group/oracle-12c-1 /u01/app/oracle-product/12.1.0/xe/bin/impdp'
 
 export HOMEBREW_NO_AUTO_UPDATE=1
-export PAGER=most
 export HISTFILE=$HOME/.cache/zsh/.zsh_history
 export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME"/httpie
 export IPYTHONDIR="$XDG_CONFIG_HOME"/jupyter

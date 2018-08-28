@@ -382,6 +382,8 @@
 	<true/>
 	<key>LogDrawingPerformance</key>
 	<false/>
+	<key>MetalSlowFrameRate</key>
+	<real>60</real>
 	<key>NSNavLastRootDirectory</key>
 	<string>~/dotfiles/iTerm</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
@@ -422,7 +424,7 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>167 140 606 469 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>278 395 796 473 0 0 1440 877 </string>
+	<string>278 422 1018 447 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>155 129 570 386 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_E7CA6A00-C5D4-46D8-B2AC-9BCEEBBE8C0F</key>
@@ -1109,7 +1111,7 @@
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
-			<integer>1000</integer>
+			<integer>0</integer>
 			<key>Selected Text Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -1240,7 +1242,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-07-16T19:43:13Z</date>
+	<date>2018-08-12T15:53:06Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -1265,8 +1267,10 @@
 	<false/>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
+	<key>disableMetalWhenUnplugged</key>
+	<true/>
 	<key>iTerm Version</key>
-	<string>3.1.7</string>
+	<string>3.2.0</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
