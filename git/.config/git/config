@@ -1,5 +1,3 @@
-[core]
-    pager = most
 [user]
     name = Andreas Schulz
     email = andi.schulz@me.com
@@ -15,7 +13,9 @@
 [credential]
     helper = store
 [pager]
-	branch = false
+    branch = false
+    diff = diff-so-fancy | less --tabs=1,5 -RFX
+    show = diff-so-fancy | less --tabs=1,5 -RFX
 [commit]
     gpgsign = true
 [gpg]
