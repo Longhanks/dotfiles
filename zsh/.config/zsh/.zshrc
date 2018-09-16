@@ -111,6 +111,9 @@ fi
 
 plugins=(git cargo pip zsh-autosuggestions pkgplugin)
 
+# Disable oh-my-zsh group permission audits.
+ZSH_DISABLE_COMPFIX=true
+
 # oh-my-zsh is ready, source it.
 source $ZSH/oh-my-zsh.sh
 
