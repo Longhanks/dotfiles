@@ -121,7 +121,7 @@ source $ZSH/oh-my-zsh.sh
 # Customization after oh-my-zsh initialized.
 
 # Aliases & environment variables.
-if command -v bat --version > /dev/null 2>&1; then
+if command -v bat > /dev/null 2>&1; then
     alias bat='bat --theme="TwoDark"'
     alias cat='bat --theme="TwoDark"'
 fi
