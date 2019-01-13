@@ -25,6 +25,7 @@ if [[ ! -d $XDG_CACHE_HOME/vim/backup ]]; then
 fi
 if [[ ! -d $XDG_CONFIG_HOME/vim ]]; then
     mkdir -p $XDG_CONFIG_HOME/vim
+    mkdir -p $XDG_CACHE_HOME/vim/{undo,swap,backup}
 fi
 if [[ ! -d $XDG_CONFIG_HOME/less ]]; then
     mkdir -p $XDG_CACHE_HOME/less
@@ -49,8 +50,8 @@ if command -v pacman > /dev/null 2>&1; then
         mkdir -p $XDG_CONFIG_HOME/pacman
     fi
 fi
-if [[ -d $HOME/.cargo/bin ]]; then
-    export PATH=$HOME/.cargo/bin:$PATH
+if [[ -d $XDG_DATA_HOME/cargo/bin ]]; then
+    export PATH=$XDG_DATA_HOME/cargo/bin:$PATH
 fi
 
 # Home of oh-my-zsh.
@@ -129,27 +130,26 @@ alias sqlplus='docker run -it --rm --net=host docker.prosis.group/oracle-12c-1 /
 alias expdp='docker run -it --rm --net=host docker.prosis.group/oracle-12c-1 /u01/app/oracle-product/12.1.0/xe/bin/expdp'
 alias impdp='docker run -it --rm --net=host docker.prosis.group/oracle-12c-1 /u01/app/oracle-product/12.1.0/xe/bin/impdp'
 
-export HOMEBREW_NO_AUTO_UPDATE=1
-export HISTFILE=$HOME/.cache/zsh/.zsh_history
-export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME"/httpie
-export IPYTHONDIR="$XDG_CONFIG_HOME"/jupyter
-export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
-export _JAVA_OPTIONS="-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java $_JAVA_OPTIONS"
-export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
-export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
-export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/config
-export NPM_CONFIG_CACHE=$XDG_CACHE_HOME/npm
-export NPM_CONFIG_TMP=$XDG_RUNTIME_DIR/npm
-export PYLINTHOME="$XDG_CACHE_HOME"/pylint
-export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
-export RLWRAP_HOME="$XDG_DATA_HOME"/rlwrap
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+export GEMRC="$XDG_CONFIG_HOME"/gem/gemrc
 export GEM_HOME="$XDG_DATA_HOME"/gem
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem
-export GEMRC="$XDG_CONFIG_HOME"/gem/gemrc
-export PINENTRY_USER_DATA="USE_CURSES=1"
-export GPG_TTY=$(tty)
 export GNUPGHOME="$XDG_CONFIG_HOME"/gnupg
-
+export GPG_TTY=$(tty)
+export HISTFILE=$HOME/.cache/zsh/.zsh_history
+export HOMEBREW_NO_AUTO_UPDATE=1
+export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME"/httpie
+export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
+export IPYTHONDIR="$XDG_CONFIG_HOME"/jupyter
+export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
+export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
+export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+export PINENTRY_USER_DATA="USE_CURSES=1"
+export PYLINTHOME="$XDG_CACHE_HOME"/pylint
+export RLWRAP_HOME="$XDG_DATA_HOME"/rlwrap
+export _JAVA_OPTIONS="-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java $_JAVA_OPTIONS"
 
 # OS-specific settings.
 case `uname -s` in
