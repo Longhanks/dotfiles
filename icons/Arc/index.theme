@@ -1,6 +1,6 @@
 [Icon Theme]
 Name=Arc
-Inherits=Papirus,Adwaita,gnome,hicolor
+Inherits=Papirus,hicolor
 Comment=Arc Icon theme
 
 #Directory list
