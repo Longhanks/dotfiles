@@ -3,7 +3,7 @@
     email = andi.schulz@me.com
     signingkey = F15B9AC734F0094A
 [push]
-    default = simple
+    default = current
 [status]
     showUntrackedFiles = all
 [pull]
