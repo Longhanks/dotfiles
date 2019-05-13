@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <style-scheme version="1.0" name="aschulz">
   <style name="Text" foreground="#abb2bf" background="#282c34"/>
-  <style name="Link" foreground="#0000ff"/>
+  <style name="Link" foreground="#e5c07b"/>
   <style name="Selection" background="#3e4451"/>
   <style name="LineNumber" foreground="#4b5364" background="#282c34"/>
   <style name="SearchResult" background="#00348f"/>
