@@ -28,9 +28,6 @@
 [submodule "vim/.vim/pack/aschulz/start/vim-surround"]
 	path = vim/.vim/pack/aschulz/start/vim-surround
 	url = https://github.com/tpope/vim-surround
-[submodule "vim/.vim/pack/aschulz/start/YouCompleteMe"]
-	path = vim/.vim/pack/aschulz/opt/YouCompleteMe
-	url = https://github.com/oblitum/YouCompleteMe
 [submodule "zsh/.config/zsh/.oh-my-zsh"]
 	path = zsh/.config/zsh/.oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh
