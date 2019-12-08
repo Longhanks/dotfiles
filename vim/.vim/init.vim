@@ -95,7 +95,7 @@ nnoremap <leader>d "+d
 nnoremap <leader>D "+D
 vnoremap <leader>d "+d
 
-" Don't jump one char to left when exiting insert mdoe
+" Don't jump one char to left when exiting insert mode
 inoremap <silent> <Esc> <C-O>:stopinsert<CR>
 
 " Search case insensitive unless query has capital letter
@@ -135,10 +135,6 @@ noremap <silent> <expr> <Up> (v:count == 0 ? 'g<Up>' : '<Up>')
 " Load all plugins by default.
 packloadall
 
-if has('nvim')
-    packadd YouCompleteMe
-endif
-
 " Color scheme settings
 let g:lightline = {
   \ 'colorscheme': 'one',
@@ -172,12 +168,6 @@ set completeopt-=preview
 
 " Allow selecting completion with enter
 inoremap <expr> <Enter> pumvisible() ? "<Esc>a" : "<Enter>"
-
-" Don't warn about global completion config file
-let g:ycm_confirm_extra_conf = 0
-
-" Provide default global completion file
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 
 " Provide python paths on OS X
 if has('unix')
