@@ -113,7 +113,7 @@ else
     fi
 fi
 
-plugins=(git cargo pip zsh-autosuggestions pkgplugin)
+plugins=(git cargo pip zsh-autosuggestions $pkgplugin)
 
 # Disable oh-my-zsh group permission audits.
 ZSH_DISABLE_COMPFIX=true
@@ -129,9 +129,6 @@ if command -v bat > /dev/null 2>&1; then
     export BAT_THEME="TwoDark"
     alias cat=bat
 fi
-alias sqlplus='docker run -it --rm --net=host docker.prosis.group/oracle-12c-1 /u01/app/oracle-product/12.1.0/xe/bin/sqlplus'
-alias expdp='docker run -it --rm --net=host docker.prosis.group/oracle-12c-1 /u01/app/oracle-product/12.1.0/xe/bin/expdp'
-alias impdp='docker run -it --rm --net=host docker.prosis.group/oracle-12c-1 /u01/app/oracle-product/12.1.0/xe/bin/impdp'
 
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
