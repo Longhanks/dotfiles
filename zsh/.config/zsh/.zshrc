@@ -173,3 +173,41 @@ case `uname -s` in
         ;;
 esac
 
+PATHS=("${(@s/:/)PATH}")
+PATHSLEN=${#PATHS}
+NEWPATH=""
+HAVEUSRLOCALBIN=false
+HAVEUSRLOCALSBIN=false
+
+for (( i = 1; i <= $PATHSLEN; ++i )) do
+    if [ "${PATHS[i]}" = "/usr/local/bin" ] || [ "${PATHS[i]}" = "/usr/local/bin/" ]; then
+        HAVEUSRLOCALBIN=true
+    fi
+    if [ "${PATHS[i]}" = "/usr/local/sbin" ] || [ "${PATHS[i]}" = "/usr/local/sbin/" ]; then
+        HAVEUSRLOCALSBIN=true
+    fi
+done
+
+if [ ! $HAVEUSRLOCALSBIN = true ]; then
+    if [ $HAVEUSRLOCALBIN = true ]; then
+        for (( i = 1; i <= $PATHSLEN; ++i )) do
+            if [ $i = 1 ]; then
+                NEWPATH="${PATHS[i]}"
+            else
+                NEWPATH="$NEWPATH:${PATHS[i]}"
+            fi
+            if [ "${PATHS[i]}" = "/usr/local/bin" ] || [ "${PATHS[i]}" = "/usr/local/bin/" ]; then
+                NEWPATH="$NEWPATH:/usr/local/sbin"
+            fi
+        done
+    else
+        NEWPATH="/usr/local/bin:/usr/local/sbin:$PATH"
+    fi
+fi
+
+export PATH=$NEWPATH
+unset PATHS
+unset PATHSLEN
+unset NEWPATH
+unset HAVEUSRLOCALBIN
+unset HAVEUSRLOCALSBIN
