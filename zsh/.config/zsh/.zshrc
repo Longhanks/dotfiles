@@ -203,9 +203,9 @@ if [ ! $HAVEUSRLOCALSBIN = true ]; then
     else
         NEWPATH="/usr/local/bin:/usr/local/sbin:$PATH"
     fi
+    export PATH=$NEWPATH
 fi
 
-export PATH=$NEWPATH
 unset PATHS
 unset PATHSLEN
 unset NEWPATH
