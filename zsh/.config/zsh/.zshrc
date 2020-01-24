@@ -99,7 +99,7 @@ DISABLE_AUTO_UPDATE="true"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-HIST_STAMPS="dd.mm.yyyy"
+HIST_STAMPS="yyyy-mm-dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM=$HOME/.config/zsh/custom/
@@ -128,6 +128,13 @@ source $ZSH/oh-my-zsh.sh
 if command -v bat > /dev/null 2>&1; then
     export BAT_THEME="TwoDark"
     alias cat=bat
+fi
+
+if command -v exa > /dev/null 2>&1; then
+    alias l="exa --long --group --classify --time-style=long-iso --all --all"
+    alias la="exa --long --group --classify --time-style=long-iso --all"
+    alias ll="exa --long --group --classify --time-style=long-iso"
+    alias lsa="exa --long --group --classify --time-style=long-iso --all --all"
 fi
 
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
