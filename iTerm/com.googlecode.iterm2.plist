@@ -8,6 +8,8 @@
 	<integer>1</integer>
 	<key>AppleFontSmoothing</key>
 	<integer>1</integer>
+	<key>ApplePressAndHoldEnabled</key>
+	<false/>
 	<key>AppleScrollAnimationEnabled</key>
 	<integer>0</integer>
 	<key>AppleSmoothFixedFontsSizeThreshold</key>
@@ -432,13 +434,13 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>410 376 620 392 0 0 1440 877 </string>
+	<string>970 783 620 392 0 0 2560 1417 </string>
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>245 304 918 423 0 0 1440 877 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>99 293 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>155 129 570 386 0 0 1440 877 </string>
+	<string>322 240 570 386 0 0 2560 1417 </string>
 	<key>NeverWarnAboutShortLivedSessions_E7CA6A00-C5D4-46D8-B2AC-9BCEEBBE8C0F</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_E7CA6A00-C5D4-46D8-B2AC-9BCEEBBE8C0F_selection</key>
@@ -1195,14 +1197,15 @@
 	<key>NoSyncAllAppVersions</key>
 	<array>
 		<string>3.3.6</string>
-		<string>3.3.4</string>
+		<string>3.3.2</string>
+		<string>3.3.8</string>
 		<string>3.3.1</string>
 		<string>3.3.3</string>
 		<string>3.3.5</string>
 		<string>3.3.7</string>
-		<string>3.2.9</string>
-		<string>3.3.2</string>
 		<string>3.3.0</string>
+		<string>3.2.9</string>
+		<string>3.3.4</string>
 	</array>
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
@@ -1218,7 +1221,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>325F635A-CE0D-4473-BDE3-E192EB9CF5B7</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>21</integer>
+	<integer>24</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
 	<real>586634025.167027</real>
 	<key>NoSyncOnboardingWindowHasBeenShown</key>
@@ -2007,11 +2010,13 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-12-10T12:14:21Z</date>
+	<date>2020-02-13T11:30:19Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
+	<key>SUUpdateGroupIdentifier</key>
+	<integer>2105357380</integer>
 	<key>SUUpdateRelaunchingMarker</key>
-	<false/>
+	<true/>
 	<key>ShowBookmarkName</key>
 	<false/>
 	<key>SlowFrameRate</key>
@@ -2045,7 +2050,7 @@
 	<key>disableMetalWhenUnplugged</key>
 	<true/>
 	<key>iTerm Version</key>
-	<string>3.3.7</string>
+	<string>3.3.8</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
