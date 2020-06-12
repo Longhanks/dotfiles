@@ -180,6 +180,10 @@ case `uname -s` in
         ;;
 esac
 
+if [ -n "$WT_SESSION" ]; then
+    export COLORTERM=truecolor
+fi
+
 PATHS=("${(@s/:/)PATH}")
 PATHSLEN=${#PATHS}
 NEWPATH=""
