@@ -1,7 +1,6 @@
 [user]
     name = Andreas Schulz
     email = andi.schulz@me.com
-    signingkey = F15B9AC734F0094A
 [push]
     default = current
 [status]
@@ -12,13 +11,10 @@
     renormalize = true
 [credential]
     helper = store
+    credentialStore = plaintext
 [pager]
     branch = false
     diff = diff-so-fancy | less --tabs=1,5 -RFX
     show = diff-so-fancy | less --tabs=1,5 -RFX
-[commit]
-    gpgsign = true
-[gpg]
-    program = gpg
 [init]
 	defaultBranch = master

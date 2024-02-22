@@ -130,11 +130,11 @@ if command -v bat > /dev/null 2>&1; then
     alias cat=bat
 fi
 
-if command -v exa > /dev/null 2>&1; then
-    alias l="exa --long --group --classify --time-style=long-iso --all --all"
-    alias la="exa --long --group --classify --time-style=long-iso --all"
-    alias ll="exa --long --group --classify --time-style=long-iso"
-    alias lsa="exa --long --group --classify --time-style=long-iso --all --all"
+if command -v eza > /dev/null 2>&1; then
+    alias l="eza --long --group --classify --time-style=long-iso --all --all"
+    alias la="eza --long --group --classify --time-style=long-iso --all"
+    alias ll="eza --long --group --classify --time-style=long-iso"
+    alias lsa="eza --long --group --classify --time-style=long-iso --all --all"
 fi
 
 export CARGO_HOME="$XDG_DATA_HOME"/cargo

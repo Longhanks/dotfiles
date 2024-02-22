@@ -12,6 +12,7 @@ Directory=
 Name=aschulz
 Parent=FALLBACK/
 TerminalColumns=120
+TerminalMargin=1
 TerminalRows=30
 
 [Scrolling]
