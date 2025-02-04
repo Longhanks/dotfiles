@@ -113,7 +113,7 @@ else
     fi
 fi
 
-plugins=(git cargo pip zsh-autosuggestions $pkgplugin)
+plugins=(git pip rust zsh-autosuggestions $pkgplugin)
 
 # Disable oh-my-zsh group permission audits.
 ZSH_DISABLE_COMPFIX=true
@@ -137,6 +137,7 @@ if command -v eza > /dev/null 2>&1; then
     alias lsa="eza --long --group --classify --time-style=long-iso --all --all"
 fi
 
+# XDG adherence.
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export GEMRC="$XDG_CONFIG_HOME"/gem/gemrc
@@ -222,3 +223,13 @@ unset PATHSLEN
 unset NEWPATH
 unset HAVEUSRLOCALBIN
 unset HAVEUSRLOCALSBIN
+
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+export DOTNET_NOLOGO=1
+export DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1
+export HOMEBREW_NO_ANALYTICS=1
+export POWERSHELL_UPDATECHECK="Off"
+export POWERSHELL_UPDATECHECK_OPTOUT=1
+export POWERSHELL_TELEMETRY_OPTOUT=1
+
+precmd() { echo -ne "\033]0;${USER}@$(hostname): ${PWD}\007" }

@@ -3,6 +3,7 @@
     email = andi.schulz@me.com
 [push]
     default = current
+    autoSetupRemote = true
 [status]
     showUntrackedFiles = all
 [pull]
@@ -17,4 +18,4 @@
     diff = diff-so-fancy | less --tabs=1,5 -RFX
     show = diff-so-fancy | less --tabs=1,5 -RFX
 [init]
-	defaultBranch = master
+    defaultBranch = master
